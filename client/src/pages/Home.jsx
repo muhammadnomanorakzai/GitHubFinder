@@ -1,0 +1,51 @@
+import { motion } from "framer-motion";
+import { useGithub } from "../context/github/githubContext";
+import FindAndFilter from "../components/widgets/FindAndFilter";
+import FAQ from "../components/faq/FAQ";
+import Contact from "../components/contact/Contact";
+import AddTestimonial from "../components/Testimmonals/AddTestimonial";
+
+const parent = { show: { transition: { staggerChildren: 0.15 } } };
+const item = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } },
+};
+
+const HEADER_H = 104;
+
+const Anchor = ({ id, offset = HEADER_H }) => (
+  <span id={id} aria-hidden="true" className="pointer-events-none block h-0" style={{ marginTop: -offset }} />
+);
+
+export default function Home() {
+  const { users, loading, error } = useGithub();
+
+  return (
+    <motion.main
+      className="relative scroll-smooth"
+      variants={parent}
+      initial="hidden"
+      animate="show"
+    >
+      <motion.section variants={item}>
+        <Anchor id="allAIs" />
+        <FindAndFilter users={users} loading={loading} error={error} />
+      </motion.section>
+
+      <motion.section variants={item}>
+        <Anchor id="faq" />
+        <FAQ />
+      </motion.section>
+
+      <motion.section variants={item}>
+        <Anchor id="contact" />
+        <Contact />
+      </motion.section>
+
+      <motion.section variants={item}>
+        <Anchor id="Review" />
+        <AddTestimonial />
+      </motion.section>
+    </motion.main>
+  );
+}

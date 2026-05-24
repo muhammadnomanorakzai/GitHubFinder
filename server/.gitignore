@@ -1,0 +1,74 @@
+# dependencies
+node_modules
+.pnp
+.pnp.js
+
+# logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# build files
+dist
+build
+.next
+out
+
+# cache
+.cache
+.parcel-cache
+
+# coverage
+coverage
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode
+.idea
+
+# misc
+*.pem
+
+# runtime
+tmp
+temp
+
+# uploads
+uploads/*
+!uploads/.gitkeep
+
+# docker
+docker-compose.override.yml
+
+# eslint cache
+.eslintcache
+
+# typescript
+*.tsbuildinfo
+
+# vercel
+.vercel
+
+# netlify
+.netlify
+
+# testing
+playwright-report
+test-results
+
+# local database
+*.sqlite
+*.sqlite3
